@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  db:
+    build:
+      context: db
+      dockerfile: Dockerfile 
+  api:
+    ports:
+      - 80:80
+      - 443:443
+    build:
+      context: api/UserAPI
+      dockerfile: Dockerfile
