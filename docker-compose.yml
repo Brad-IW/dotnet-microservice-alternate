@@ -5,9 +5,6 @@ services:
       context: db
       dockerfile: Dockerfile 
   api:
-    ports:
-      - 80:80
-      - 443:443
     build:
       context: api/UserAPI
       dockerfile: Dockerfile
@@ -41,11 +38,11 @@ services:
     depends_on:
       - kong-bootstrap
     ports:
-     - "8000:8000"
-     - "8002:8002"
-     - "8433:8433"
-     - "8001:8001"
-     - "8444:8444"
+     - "80:8000"
+    #  - "8002:8002"
+    #  - "8433:8433"
+    #  - "8001:8001"
+    #  - "8444:8444"
     environment:
       KONG_DATABASE: "postgres"
       KONG_PG_HOST: "kong-database"
