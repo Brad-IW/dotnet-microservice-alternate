@@ -10,13 +10,13 @@ public class UserDto
     [Column("id")]
     public int Id { get; set; }
     [Column("firstname")]
-    public string FirstName { get; set; }
+    public string? FirstName { get; set; }
     [Column("lastname")]
-    public string LastName { get; set; }
+    public string? LastName { get; set; }
     [Column("age")]
     public int Age { get; set; }
     [Column("sex")]
-    public string Sex { get; set; }
+    public string? Sex { get; set; }
 
     public static explicit operator User?(UserDto dto)
         => FromDto(dto);
@@ -34,10 +34,10 @@ public class UserDto
         return new User
         {
             Id = dto.Id,
-            FirstName = dto.FirstName,
-            LastName = dto.LastName,
-            Age = dto.Age,
-            Sex = dto.Sex,
+            FirstName = dto?.FirstName ?? string.Empty,
+            LastName = dto?.LastName ?? string.Empty,
+            Age = dto?.Age ?? 0,
+            Sex = dto?.Sex ?? string.Empty,
         };
     }
 

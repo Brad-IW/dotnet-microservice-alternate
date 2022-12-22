@@ -14,43 +14,52 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> CreateUser(User user)
     {
-        if (await _usersContext.Users
+        if (user is null ||
+            await _usersContext.Users
            .Where(u => u.Id == user.Id)
            .AnyAsync())
         {
             return null;
         }
 
-        var res = await _usersContext.AddAsync((UserDto)user);
+        var res = await _usersContext.AddAsync((UserDto)user!);
         await _usersContext.SaveChangesAsync();
 
-        return (User)res.Entity;
+        return (User?)res.Entity;
     }
 
-    public async Task DeleteUser(int id)
+    public async Task<bool> DeleteUser(int id)
     {
-        var user = _usersContext.Users
-            .FirstOrDefault(u => u.Id == id);
+        var user = await _usersContext.Users
+            .FirstOrDefaultAsync(u => u.Id == id);
 
         if (user is not null) 
         {
             _usersContext.Remove(user);
             await _usersContext.SaveChangesAsync();
+            return true;
         }
+
+        return false;
     }
 
     public async Task<User?> GetUser(int id)
     {
         var user = await _usersContext.Users
             .FirstOrDefaultAsync(u => u.Id == id);
+        
+        if (user is not null)
+        {
+            return (User)user!;
+        }
 
-        return (User?)user;
+        return null;
     }
 
     public async Task<IEnumerable<User>> GetUsers()
     {
         return await _usersContext.Users
-            .Select(u => (User)u)
+            .Select(u => (User)u!)
             .ToListAsync(); 
     }
 

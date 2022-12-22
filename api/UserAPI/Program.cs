@@ -5,8 +5,10 @@ using UserAPI.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var dbConnectionString = builder.Configuration.GetConnectionString("PostgreSQL");
+
 builder.Services.AddDbContext<UsersContext>(settings =>
-    settings.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQL")));
+    settings.UseNpgsql(dbConnectionString));
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 

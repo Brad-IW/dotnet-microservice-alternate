@@ -69,8 +69,14 @@ public class UsersController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteUser(int id)
     {
-        _userRepository.DeleteUser(id);
-        return StatusCode(StatusCodes.Status200OK);
+        var res = await _userRepository.DeleteUser(id);
+
+        if (res)
+        {
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
+        return new BadRequestObjectResult($"Failed to delete user with id '{id}'");
     }
 
 }
