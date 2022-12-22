@@ -18,6 +18,8 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetUser(int id)
     {
         var user = await _userRepository.GetUser(id);
@@ -32,6 +34,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> GetUsers()
     {
         var users = await _userRepository.GetUsers();
@@ -41,6 +44,8 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateUser([FromBody] User user)
     {
         var res = await _userRepository.CreateUser(user);
@@ -54,6 +59,8 @@ public class UsersController : ControllerBase
     }
 
     [HttpPut]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> UpdateUser([FromBody] User user)
     {
         var res = await _userRepository.UpdateUser(user);
@@ -67,6 +74,8 @@ public class UsersController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> DeleteUser(int id)
     {
         var res = await _userRepository.DeleteUser(id);
