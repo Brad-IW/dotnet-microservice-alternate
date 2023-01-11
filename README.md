@@ -1,4 +1,4 @@
-# Dotnet Microservice Kong/PostgreSQL Version
+# DotNET Microservice Kong/PostgreSQL Version
 
 ## Installation Guide
 
