@@ -19,8 +19,8 @@
 ## Test Plan
 
 1. Open Postman and click import.
-2. Select the postman_collection.json and click import.
+2. Click Choose Files and select the postman_collection.json from the repo. Click the import button.
 3. Right click on the DotNET Microservice Tests collection and click Run collection.
-4. Click Run manually and press Run DotNET Microservice Tests.
+4. Choose the Run manually option and press Run DotNET Microservice Tests.
    
    If everything went correctly, the GET, DELETE, and PUT methods will respond with 200 OK, while the POST method will respond with 201 Created.
