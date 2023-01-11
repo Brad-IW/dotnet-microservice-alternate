@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\docker\\dotnet-microservice-alternate\\api\\UserAPI\\UserAPI.csproj": {}
+    "C:\\dev\\Docker\\dotnet-microservice-alternate\\api\\UserAPI\\UserAPI.csproj": {}
   },
   "projects": {
-    "C:\\dev\\docker\\dotnet-microservice-alternate\\api\\UserAPI\\UserAPI.csproj": {
+    "C:\\dev\\Docker\\dotnet-microservice-alternate\\api\\UserAPI\\UserAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\docker\\dotnet-microservice-alternate\\api\\UserAPI\\UserAPI.csproj",
+        "projectUniqueName": "C:\\dev\\Docker\\dotnet-microservice-alternate\\api\\UserAPI\\UserAPI.csproj",
         "projectName": "UserAPI",
-        "projectPath": "C:\\dev\\docker\\dotnet-microservice-alternate\\api\\UserAPI\\UserAPI.csproj",
+        "projectPath": "C:\\dev\\Docker\\dotnet-microservice-alternate\\api\\UserAPI\\UserAPI.csproj",
         "packagesPath": "C:\\Users\\BradPodmore\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\docker\\dotnet-microservice-alternate\\api\\UserAPI\\obj\\",
+        "outputPath": "C:\\dev\\Docker\\dotnet-microservice-alternate\\api\\UserAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
