@@ -3,6 +3,7 @@
 ## Prerequisites
 
 [Docker](https://docs.docker.com/get-docker/) installed and running.
+[Postman](https://www.postman.com/) if following along with the test plan.
 
 ## Installation Guide
 
@@ -17,6 +18,8 @@
 
 ## Test Plan
 
-Make a GET web request (using a web browser, curl, postman, etc.) to `http://localhost:80/api/users`. After a few seconds this should return a list of all 1000 users within the API.
-
-Make a GET web request to `http://localhost:80/api/users/10`. This should return the user with the ID of 10.
+1. Open Postman and click import.
+2. Select the postman_collection.json and click import.
+3. Right click on the DotNET Microservice Tests collection and click Run collection.
+4. Click Run manually and press Run DotNET Microservice Tests.
+    If everything went correctly, the GET, DELETE, and PUT methods will respond with 200 OK, while the POST method will respond with 201 Created.
