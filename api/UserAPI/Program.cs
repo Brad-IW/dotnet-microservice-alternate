@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Prometheus;
 using UserAPI;
+using UserAPI.MetricReporting;
 using UserAPI.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,7 @@ var dbConnectionString = builder.Configuration.GetConnectionString("PostgreSQL")
 builder.Services.AddDbContext<UsersContext>(settings =>
     settings.UseNpgsql(dbConnectionString));
 
+builder.Services.AddSingleton<IRequestMetricReporter, RequestMetricReporter>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 builder.Services.AddControllers();
@@ -34,6 +37,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMetricServer();
+app.UseMiddleware<ResponseMetricMiddleware>();
 
 app.UseHttpsRedirection();
 

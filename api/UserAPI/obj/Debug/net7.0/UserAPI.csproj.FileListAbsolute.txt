@@ -37,3 +37,5 @@ C:\dev\Docker\dotnet-microservice-alternate\api\UserAPI\obj\Debug\net7.0\refint\
 C:\dev\Docker\dotnet-microservice-alternate\api\UserAPI\obj\Debug\net7.0\UserAPI.pdb
 C:\dev\Docker\dotnet-microservice-alternate\api\UserAPI\obj\Debug\net7.0\UserAPI.genruntimeconfig.cache
 C:\dev\Docker\dotnet-microservice-alternate\api\UserAPI\obj\Debug\net7.0\ref\UserAPI.dll
+C:\dev\docker\dotnet-microservice-alternate\api\UserAPI\bin\Debug\net7.0\Prometheus.NetStandard.dll
+C:\dev\docker\dotnet-microservice-alternate\api\UserAPI\bin\Debug\net7.0\Prometheus.AspNetCore.dll
