@@ -1,10 +1,12 @@
 version: '3.9'
 services:
   db:
+    container_name: api-db
     build:
       context: db
       dockerfile: Dockerfile 
   api:
+    container_name: api
     build:
       context: api/UserAPI
       dockerfile: Dockerfile
@@ -12,7 +14,7 @@ services:
     image: postgres:13-alpine
     restart: always 
     hostname: kong-database
-    container_name: kong-database
+    container_name: kong-db
     environment:
       POSTGRES_USER: "kong"
       POSTGRES_DB: "kong"
@@ -39,10 +41,7 @@ services:
       - kong-bootstrap
     ports:
      - "80:8000"
-    #  - "8002:8002"
-    #  - "8433:8433"
-    #  - "8001:8001"
-    #  - "8444:8444"
+     - "8002:8002"
     environment:
       KONG_DATABASE: "postgres"
       KONG_PG_HOST: "kong-database"
@@ -54,6 +53,7 @@ services:
       KONG_ADMIN_ERROR_LOG: "/dev/stderr"
       KONG_ADMIN_LISTEN: "0.0.0.0:8001, 0.0.0.0:8444 ssl"
   service-builder:
+    container_name: service-builder
     depends_on:
       - kong
     restart: "no"
