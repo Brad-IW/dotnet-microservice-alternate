@@ -24,3 +24,9 @@
 4. Choose the Run manually option and press Run DotNET Microservice Tests.
    
    If everything went correctly, the GET, DELETE, and PUT methods will respond with 200 OK, while the POST method will respond with 201 Created.
+
+   If something went wrong with the tests, or some other error occured, each service can be accessed individually.
+
+   - Kong: Open `http://localhost:8002` in your web browser to access the GUI.
+   - Postgres: Enter `docker exec -it api-db psql -U postgres` into your terminal to access the postgres psql terminal.
+   - API: Access the API directly by going to `http://localhost:8050` 
