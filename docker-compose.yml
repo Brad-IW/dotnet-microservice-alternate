@@ -44,6 +44,9 @@ services:
     ports:
      - "80:8000"
      - "8002:8002"
+     - "8433:8433"
+     - "8001:8001"
+     - "8444:8444"
     environment:
       KONG_DATABASE: "postgres"
       KONG_PG_HOST: "kong-database"
