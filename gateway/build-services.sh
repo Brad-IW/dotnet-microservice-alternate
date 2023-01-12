@@ -15,5 +15,3 @@ curl -i -X POST http://kong:8001/services \
 curl -i -X POST http://kong:8001/services/UsersAPIService/routes \
     -H "Content-Type: application/json" \
     -d '{ "name": "UsersAPIRoute", "protocols": [ "http", "https" ], "paths": [ "/api/users" ] }'
-
-    
